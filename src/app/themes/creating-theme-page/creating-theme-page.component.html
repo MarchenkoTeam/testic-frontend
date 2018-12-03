@@ -1,0 +1,40 @@
+<main class="container bg-light p-3 mt-2">
+  <h3 class="text-center">Добавить тему</h3>
+  <form [formGroup]="formGroup" (submit)="submit()">
+    <div class="form-group">
+      <label for="name-input">Название</label>
+      <div class="alert alert-danger"
+           *ngIf="formGroup.controls['name'].invalid && (formGroup.controls['name'].dirty || formGroup.controls['name'].touched)">
+        <ng-container *ngIf="formGroup.controls['name'].errors.required">
+          Должно быть заполненно
+        </ng-container>
+        <ng-container *ngIf="formGroup.controls['name'].errors.minlength">
+          Минимум 4 символа
+        </ng-container>
+      </div>
+      <input class="form-control"
+             type="text"
+             id="name-input"
+             formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="description-input">Описание</label>
+      <div class="alert alert-danger"
+           *ngIf="formGroup.controls['description'].invalid && (formGroup.controls['description'].dirty || formGroup.controls['description'].touched)">
+        <ng-container *ngIf="formGroup.controls['description'].errors.required">
+          Должно быть заполненно
+        </ng-container>
+        <ng-container *ngIf="formGroup.controls['description'].errors.minlength">
+          Минимум 20 символов
+        </ng-container>
+      </div>
+      <textarea class="form-control"
+                id="description-input"
+                formControlName="description"
+                rows="8"></textarea>
+    </div>
+
+    <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="formGroup.invalid">Добавить</button>
+  </form>
+</main>
