@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: 'app/landing/landing.module#LandingModule' },
+  { path: 'login', loadChildren: 'app/auth/auth.module#AuthModule' }
 ];
 
 @NgModule({
