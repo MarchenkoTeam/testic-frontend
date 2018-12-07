@@ -29,4 +29,8 @@ export class LocalStorageService {
       this.localStorage.removeItem(key);
     }
   }
+
+  hasToken() {
+    return !!this.getItem('authToken');
+  }
 }
