@@ -1,8 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: 'app/landing/landing.module#LandingModule' },
+  {
+    path: '',
+    loadChildren: 'app/landing/landing.module#LandingModule'
+  },
+  {
+    path: 'login',
+    loadChildren: 'app/auth/auth.module#AuthModule'
+  },
+  {
+    path: 'registration',
+    loadChildren: 'app/registration/registration.module#RegistrationModule'
+  }
 ];
 
 @NgModule({

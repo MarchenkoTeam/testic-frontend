@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@app/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageModule } from '@app/local-storage/local-storage.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserModule,
     CoreModule,
+    LocalStorageModule,
     HttpClientModule
   ],
   bootstrap: [AppComponent]
