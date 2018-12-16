@@ -22,7 +22,15 @@ export class ThemesService {
     return this.http.get<Theme[]>('/themes');
   }
 
+  getTheme(id: number): Observable<Theme> {
+    return this.http.get<Theme>(`/themes/${id}`);
+  }
+
   createTheme(theme: Theme): Observable<Theme> {
     return this.http.post<Theme>('/themes', theme, { headers: this.headers });
+  }
+
+  updateTheme(theme: Theme): Observable<Theme> {
+    return this.http.put<Theme>(`/themes/${theme.id}`, theme, { headers: this.headers });
   }
 }

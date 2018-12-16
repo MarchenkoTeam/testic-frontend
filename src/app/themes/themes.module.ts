@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { CreatingThemePageComponent } from './creating-theme-page/creating-theme-page.component';
 import { ThemesRoutingModule } from '@app/themes/themes-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdatingThemePageComponent } from './updating-theme-page/updating-theme-page.component';
+import { ThemeFormComponent } from './theme-form/theme-form.component';
 
 @NgModule({
-  declarations: [CreatingThemePageComponent],
+  declarations: [CreatingThemePageComponent, UpdatingThemePageComponent, ThemeFormComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -13,4 +15,5 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ThemesRoutingModule
   ]
 })
-export class ThemesModule {}
+export class ThemesModule {
+}
