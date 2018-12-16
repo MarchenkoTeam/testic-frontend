@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@app/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageModule } from '@app/local-storage/local-storage.module';
 
 @NgModule({
@@ -12,8 +13,10 @@ import { LocalStorageModule } from '@app/local-storage/local-storage.module';
     AppRoutingModule,
     BrowserModule,
     CoreModule,
+    FormsModule,
     LocalStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

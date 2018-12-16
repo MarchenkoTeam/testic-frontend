@@ -28,6 +28,7 @@ export class RegistrationPageComponent implements OnInit {
       this.authService.register(this.formGroup.value)
           .subscribe(token => {
             this.localStorageService.setItem('authToken', token.token);
+            this.localStorageService.setItem('role', token.role);
             this.router.navigateByUrl('/');
           });
     }

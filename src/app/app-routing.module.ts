@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'registration',
     loadChildren: 'app/registration/registration.module#RegistrationModule'
+  },
+  {
+    path: 'themes',
+    loadChildren: 'app/themes/themes.module#ThemesModule'
   }
 ];
 

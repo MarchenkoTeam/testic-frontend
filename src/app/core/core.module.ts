@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiHostInterceptorService } from '@app/core/http-interceptors';
 import { GuestGuard } from '@app/core/guest-guard';
+import { AdminGuard } from '@app/core/admin-guard';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -11,7 +12,9 @@ import { GuestGuard } from '@app/core/guest-guard';
   imports: [CommonModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHostInterceptorService, multi: true },
+    AdminGuard,
     GuestGuard
   ]
 })
-export class CoreModule {}
+export class CoreModule {
+}

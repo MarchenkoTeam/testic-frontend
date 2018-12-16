@@ -30,7 +30,15 @@ export class LocalStorageService {
     }
   }
 
+  getToken() {
+    return this.getItem('authToken');
+  }
+
   hasToken() {
-    return !!this.getItem('authToken');
+    return !!this.getToken();
+  }
+
+  getRole() {
+    return this.getItem('role');
   }
 }
