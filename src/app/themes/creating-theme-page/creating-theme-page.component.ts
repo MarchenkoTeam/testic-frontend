@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ThemesService } from '@app/core/services/themes.service';
-import { Theme } from '@app/entities';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creating-theme-page',
@@ -13,6 +13,7 @@ export class CreatingThemePageComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
+              private router: Router,
               private themesService: ThemesService) {
   }
 
@@ -20,18 +21,15 @@ export class CreatingThemePageComponent implements OnInit {
     this.initForm();
   }
 
-  private initForm() {
-    this.formGroup = this.formBuilder.group({
-      'name': ['', [Validators.required,
-                    Validators.minLength(4)]],
-      'description': ['', [Validators.required,
-                           Validators.minLength(20)]]
-    });
+  submit() {
+    this.themesService.createTheme(this.formGroup.value)
+      .subscribe(theme => this.router.navigateByUrl(`/themes/${theme.id}`));
   }
 
-  submit() {
-    const theme = this.formGroup.value as Theme;
-    this.themesService.createTheme(theme)
-      .subscribe();
+  private initForm() {
+    this.formGroup = this.formBuilder.group({
+      'name': [''],
+      'description': ['']
+    });
   }
 }

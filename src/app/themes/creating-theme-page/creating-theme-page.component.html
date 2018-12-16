@@ -1,40 +1,21 @@
-<main class="container bg-light p-3 mt-2">
-  <h3 class="text-center">Добавить тему</h3>
-  <form [formGroup]="formGroup" (submit)="submit()">
-    <div class="form-group">
-      <label for="name-input">Название</label>
-      <div class="alert alert-danger"
-           *ngIf="formGroup.controls['name'].invalid && (formGroup.controls['name'].dirty || formGroup.controls['name'].touched)">
-        <ng-container *ngIf="formGroup.controls['name'].errors.required">
-          Должно быть заполненно
-        </ng-container>
-        <ng-container *ngIf="formGroup.controls['name'].errors.minlength">
-          Минимум 4 символа
-        </ng-container>
-      </div>
-      <input class="form-control"
-             type="text"
-             id="name-input"
-             formControlName="name">
-    </div>
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <form (submit)="submit()"
+          [formGroup]="formGroup"
+          class="col-12 col-md-8 bg-white border rounded p-4">
+      <h3>Создать тему</h3>
 
-    <div class="form-group">
-      <label for="description-input">Описание</label>
-      <div class="alert alert-danger"
-           *ngIf="formGroup.controls['description'].invalid && (formGroup.controls['description'].dirty || formGroup.controls['description'].touched)">
-        <ng-container *ngIf="formGroup.controls['description'].errors.required">
-          Должно быть заполненно
-        </ng-container>
-        <ng-container *ngIf="formGroup.controls['description'].errors.minlength">
-          Минимум 20 символов
-        </ng-container>
+      <div class="form-group">
+        <label class="label" for="name">Название</label>
+        <input class="form-control" formControlName="name" id="name" type="text">
       </div>
-      <textarea class="form-control"
-                id="description-input"
-                formControlName="description"
-                rows="8"></textarea>
-    </div>
 
-    <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="formGroup.invalid">Добавить</button>
-  </form>
-</main>
+      <div class="form-group">
+        <label class="label" for="description">Описание</label>
+        <textarea class="form-control" formControlName="description" id="description" rows="6" type="text"></textarea>
+      </div>
+
+      <button class="btn btn-dark btn-block mt-4" type="submit">Создать</button>
+    </form>
+  </div>
+</div>

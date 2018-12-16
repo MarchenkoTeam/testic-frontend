@@ -27,6 +27,7 @@ export class AuthLoginPageComponent implements OnInit {
         .subscribe(token => {
             if (this.localStorage) {
               this.localStorage.setItem('authToken', token.token);
+              this.localStorage.setItem('role', token.role);
               this.router.navigateByUrl('/');
             }
           },

@@ -2,26 +2,27 @@ import { Injectable } from '@angular/core';
 import { Theme } from '@app/entities';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    authToken: 'secretKey'
-  })
-};
+import { LocalStorageService } from '@app/local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemesService {
 
-  constructor(private http: HttpClient) {}
+  headers: HttpHeaders;
+
+  constructor(private localStorageService: LocalStorageService,
+              private http: HttpClient) {
+    this.headers = new HttpHeaders({
+      authToken: this.localStorageService.getToken()
+    });
+  }
 
   getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>('/themes');
   }
 
   createTheme(theme: Theme): Observable<Theme> {
-    return this.http.post<Theme>('/themes', theme, httpOptions);
+    return this.http.post<Theme>('/themes', theme, { headers: this.headers });
   }
 }
