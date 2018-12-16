@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./creating-theme-page.component.scss']
 })
 export class CreatingThemePageComponent implements OnInit {
-
-  formGroup: FormGroup;
+  form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -22,12 +21,12 @@ export class CreatingThemePageComponent implements OnInit {
   }
 
   submit() {
-    this.themesService.createTheme(this.formGroup.value)
+    this.themesService.createTheme(this.form.value)
       .subscribe(theme => this.router.navigateByUrl(`/themes/${theme.id}`));
   }
 
   private initForm() {
-    this.formGroup = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       'name': [''],
       'description': ['']
     });
