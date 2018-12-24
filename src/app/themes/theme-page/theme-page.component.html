@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <div class="p-4 bg-white rounded" *ngIf="theme">
+    <h3>{{ theme.name }}</h3>
+    <p>{{ theme.description }}</p>
+    <div class="d-flex flex-row-reverse">
+      <button class="btn btn-dark" (click)="onStart()">Начать</button>
+    </div>
+  </div>
+</div>

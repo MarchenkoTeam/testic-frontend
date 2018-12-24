@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ theme.name }}</h5>
           <p class="card-text">{{ theme.description }}</p>
-          <a href="#" class="card-link">Перейти</a>
+          <a [href]="'/themes/' + theme.id" class="card-link">Перейти</a>
         </div>
       </div>
     </div>
