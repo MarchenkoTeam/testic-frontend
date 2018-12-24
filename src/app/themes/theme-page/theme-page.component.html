@@ -3,7 +3,12 @@
     <h3>{{ theme.name }}</h3>
     <p>{{ theme.description }}</p>
     <div class="d-flex flex-row-reverse">
-      <button class="btn btn-dark" (click)="onStart()">Начать</button>
+      <div class="px-1">
+        <button class="btn btn-success" (click)="onStart()">Начать</button>
+      </div>
+      <div class="px-1">
+        <a [href]="'/themes/' + theme.id + '/edit'" class="btn btn-dark active" role="button">Обновить</a>
+      </div>
     </div>
   </div>
 </div>

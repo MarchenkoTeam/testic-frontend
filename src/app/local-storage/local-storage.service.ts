@@ -41,4 +41,8 @@ export class LocalStorageService {
   getRole() {
     return this.getItem('role');
   }
+
+  get isAdmin() {
+    return this.getRole() === 'ADMIN';
+  }
 }

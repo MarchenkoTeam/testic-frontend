@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalStorageService } from '@app/local-storage/local-storage.service';
 import { ThemesService } from '@app/core/services/themes.service';
 import { Theme } from '@app/enities';
 
@@ -16,6 +17,7 @@ export class ThemePageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private localStorageService: LocalStorageService,
               private themesService: ThemesService) { }
 
   ngOnInit() {
@@ -25,7 +27,6 @@ export class ThemePageComponent implements OnInit {
   }
 
   onStart() {
-    this.router.navigateByUrl(`/themes/${this.themeId}/test`)
+    this.router.navigateByUrl(`/themes/${this.themeId}/test`);
   }
-
 }
