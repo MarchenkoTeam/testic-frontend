@@ -8,12 +8,19 @@
   </button>
   <div class="collapse navbar-collapse flex-row-reverse" id="navbar-navs">
     <ul class="navbar-nav text-center">
-      <li class="nav-item">
-        <a href="/login" class="nav-link">Войти</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/registration">Зарегистрироваться</a>
-      </li>
+      <ng-container *ngIf="!isLogin">
+        <li class="nav-item">
+          <a href="/login" class="nav-link">Войти</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registration">Зарегистрироваться</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="isLogin && isAdmin">
+        <li class="nav-item">
+          <a class="nav-link" href="/themes/new">Добавить тему</a>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </nav>

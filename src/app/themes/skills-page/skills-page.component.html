@@ -1,0 +1,6 @@
+<div class="container mt-5">
+  <div class="p-4 bg-white rounded" *ngIf="theme">
+    <h3>Скилы темы "{{ theme.name }}"</h3>
+    <app-skills-list *ngIf="theme" [skills]="theme.skills" (update)="onUpdateSkill($event)" (delete)="onDeleteSkill($event)"></app-skills-list>
+  </div>
+</div>

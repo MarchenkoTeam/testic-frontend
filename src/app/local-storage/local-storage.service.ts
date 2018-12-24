@@ -45,4 +45,8 @@ export class LocalStorageService {
   get isAdmin() {
     return this.getRole() === 'ADMIN';
   }
+
+  get isLogin() {
+    return !!this.getToken();
+  }
 }

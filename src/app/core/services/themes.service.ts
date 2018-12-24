@@ -33,4 +33,20 @@ export class ThemesService {
   updateTheme(theme: Theme): Observable<Theme> {
     return this.http.put<Theme>(`/themes/${theme.id}`, theme, { headers: this.headers });
   }
+
+  updateSkill(themeId: number, skill: Any): Observable<Theme> {
+    return this.http.put<Theme>(`/themes/${themeId}/skill`, skill, { headers: this.headers });
+  }
+
+  deleteSkill(themeId: number, skill: Any): Observable<Theme> {
+    return this.http.delete<Theme>(`/themes/${themeId}/skill`, skill, { headers: this.headers });
+  }
+
+  getTest(themeId: number): Observable<Test> {
+    return this.http.get<Test>(`/themes/${themeId}/test`, { headers: this.headers });
+  }
+
+  sendTest(themeId: number, test: Any): Observable<Test> {
+    return this.http.get<Test>(`/themes/${themeId}/test`, { headers: this.headers });
+  }
 }

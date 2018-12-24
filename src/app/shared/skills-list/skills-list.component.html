@@ -1,0 +1,5 @@
+<ng-container *ngIf="skills">
+  <ng-container *ngFor="let skill of skills">
+    <app-skill-form [skill]="skill" (update)="onUpdate($event)" (delete)="onDelete($event)"></app-skill-form>
+  </ng-container>
+</ng-container>

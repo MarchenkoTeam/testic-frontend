@@ -10,5 +10,13 @@
         <a [href]="'/themes/' + theme.id + '/edit'" class="btn btn-dark active" role="button">Обновить</a>
       </div>
     </div>
+    <div class="py-2">
+      <div class="btn btn-primary btn-sm m-1" *ngFor="let skill of theme.skills">
+        {{ skill.skill.name }}
+      </div>
+      <div class="d-flex flex-row-reverse" *ngIf="isAdmin">
+        <a [href]="'/themes/' + theme.id + '/skills'" class="btn btn-dark">Изменить скилы</a>
+      </div>
+    </div>
   </div>
 </div>

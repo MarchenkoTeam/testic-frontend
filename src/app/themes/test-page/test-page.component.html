@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div class="p-4 bg-white rounded" *ngIf="me && test && form">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <h3>{{ test.name }}</h3>
+      <p>{{ test.description }}</p>
+      <textarea class="form-control" name="name" rows="8" cols="80" formControlName="code"></textarea>
+      <div class="mt-2">
+        <button class="btn btn-success btn-block" type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
+</div>

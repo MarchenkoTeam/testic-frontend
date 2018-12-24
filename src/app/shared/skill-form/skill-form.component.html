@@ -1,0 +1,10 @@
+<form [formGroup]="form" class="my-1">
+  <div class="row">
+    <label class="col-md-2">{{ skill.skill.name }}</label>
+    <input type="number" class="form-control col-md-7" formControlName="value">
+    <div class="col-md-3">
+      <button class="btn btn-success mr-1" (click)="onUpdate()">Обновить</button>
+      <button class="btn btn-danger" (click)="onDelete()">Удалить</button>
+    </div>
+  </div>
+</form>
